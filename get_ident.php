@@ -74,14 +74,13 @@ if(!in_array($data["input_item"][$i]["ident"], $db_idents )){
 	
 } else { 
 
-	array_push($data["new"], $data["input_item"][$i]["ident"]);
-
 	$new_ident = $data["input_item"][$i][ident];
-	$new_ver = $data["input_item"][$i][ver_val][version];
-	
+	$new_ver = $data["input_item"][$i][ver_val][version];	
 	
 	if(checkVer($new_ident, $new_ver, $data["db_item"])){		
 		array_push($data["update"], $data["input_item"][$i]["ident"]);		
+	} else {
+		array_push($data["new"], $data["input_item"][$i]["ident"]);
 	}
 	
 }
